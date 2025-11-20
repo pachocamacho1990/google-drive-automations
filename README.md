@@ -9,6 +9,8 @@ A lightweight, framework-free Python toolkit for automating Google Drive operati
 
 -   **Examples**: "Confidentiality" (Public/Internal/Restricted), "Status" (Draft/Final), "Department" (HR/Engineering).
 -   **Why use them?**: They allow you to search, filter, and apply policies to files regardless of where they live in your folder structure.
+
+**Availability**: Drive Labels are a Google Workspace feature. They are available on paid Workspace editions that include the Labels service (Business Standard, Business Plus, Enterprise Essentials, Enterprise Standard, Enterprise Plus). They are not available on free consumer Google accounts. An admin must enable the Labels service in the Admin console for the organization.
 -   **How this tool helps**: This toolkit lets you programmatically **list**, **read**, and **modify** these labels, enabling powerful automation workflows.
 
 ## Quick Start
