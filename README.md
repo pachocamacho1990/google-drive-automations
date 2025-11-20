@@ -98,11 +98,37 @@ files = list_files_in_folder(service, drive_id, folder_id)
 - **Authentication Method**: OAuth2 User Authentication (not service account)
 
 ### 2. OAuth2 Credentials Setup
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Navigate to project `atomic-elixir-377814`
-3. Enable APIs: Google Drive API + Drive Labels API
-4. Create OAuth2 Client ID (Desktop Application type)
-5. Download credentials → Save as `credentials.json` in project root
+
+> [!IMPORTANT]
+> You **must** obtain the `credentials.json` file from Google Cloud Console before running any scripts. This file contains the OAuth2 client credentials that identify your application.
+
+**Steps to get `credentials.json`:**
+
+1. **Go to Google Cloud Console**
+   - Visit [console.cloud.google.com](https://console.cloud.google.com/)
+   - Select your project (e.g., `atomic-elixir-377814`)
+
+2. **Enable Required APIs**
+   - Navigate to **APIs & Services > Library**
+   - Search for and enable **Google Drive API**
+   - Search for and enable **Google Drive Labels API**
+
+3. **Create OAuth2 Client ID**
+   - Go to **APIs & Services > Credentials**
+   - Click **+ CREATE CREDENTIALS** → Select **OAuth client ID**
+   - If prompted to configure the consent screen, do so first:
+     - Choose **Internal** (for Workspace) or **External** (for testing)
+     - Fill in basic app information
+     - Add scopes: `drive` and `drive.labels`
+   - **Application type**: Select **Desktop app**
+   - **Name**: Enter a descriptive name (e.g., "Drive Automation Script")
+   - Click **CREATE**
+
+4. **Download credentials.json**
+   - After creation, you'll see a dialog with Client ID and Client Secret
+   - Click the **Download JSON** button (⬇ icon)
+   - Save the downloaded file to your project root directory
+   - **Rename it to exactly `credentials.json`** (it may download as something like `client_secret_xxx.json`)
 
 ### 3. Python Environment
 Run `./setup.sh` to create isolated virtual environment with dependencies
