@@ -94,7 +94,7 @@ files = list_files_in_folder(service, drive_id, folder_id)
 ## Setup Requirements
 
 ### 1. Google Cloud Project
-- **Project ID**: `atomic-elixir-377814`
+- **Any GCP Project**: You can use any Google Cloud Project (the example `atomic-elixir-377814` is just for reference)
 - **Authentication Method**: OAuth2 User Authentication (not service account)
 
 ### 2. OAuth2 Credentials Setup
@@ -106,7 +106,7 @@ files = list_files_in_folder(service, drive_id, folder_id)
 
 1. **Go to Google Cloud Console**
    - Visit [console.cloud.google.com](https://console.cloud.google.com/)
-   - Select your project (e.g., `atomic-elixir-377814`)
+   - Select or create your GCP project
 
 2. **Enable Required APIs**
    - Navigate to **APIs & Services > Library**
