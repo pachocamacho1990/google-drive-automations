@@ -48,6 +48,7 @@ The project uses **OAuth2 User Authentication** (not service account):
 - **automations/folder_lister.py**: Lists files in folders with their Drive Labels
 - **automations/label_modifier.py**: Modifies labels on files, uses catalog for name resolution
 - **automations/bulk_label_modifier.py**: Iterates folder and applies labels to all files
+- **automations/file_downloader.py**: Downloads files, handling binary vs Workspace formats
 - **utilities.py**: Shared authentication logic + pure functions for API operations
 - **Shared Drive Focus**: All operations designed to work with shared drive ID `0ACLtKHNaf3uMUk9PVA`
 
@@ -61,6 +62,7 @@ The project uses **OAuth2 User Authentication** (not service account):
 - **automations/folder_lister.py**: Imports `authenticate` and helper functions from `utilities`
 - **automations/label_modifier.py**: Imports `authenticate` and `get_labels_catalog` from `utilities`
 - **automations/bulk_label_modifier.py**: Imports `authenticate` and helpers from `utilities`
+- **automations/file_downloader.py**: Imports `authenticate` from `utilities`
 - **utilities.py**: Requires Google API client libraries, handles auth flow
 
 ### Key Constants and Configuration

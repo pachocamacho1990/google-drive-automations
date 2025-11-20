@@ -28,7 +28,8 @@ drive-automation-actions/
 │   ├── labels_lister.py   # Standalone script: lists labels
 │   ├── folder_lister.py   # Standalone script: lists files with labels
 │   ├── label_modifier.py  # Standalone script: modifies labels (names or IDs)
-│   └── bulk_label_modifier.py # Standalone script: bulk modifies labels in folder
+│   ├── bulk_label_modifier.py # Standalone script: bulk modifies labels in folder
+│   └── file_downloader.py # Standalone script: downloads files (exports Docs to PDF)
 ├── utilities.py           # Shared auth & helper functions
 ├── credentials.json       # OAuth2 client configuration (from Google Cloud Console)
 ├── token.json            # OAuth2 tokens (auto-generated on first run)
@@ -66,6 +67,11 @@ Each automation is a **standalone script** that does one thing well.
 - **Purpose**: Apply a label to **all files** in a specific folder
 - **Features**: Bulk processing, progress tracking, name resolution
 - **Usage**: `python automations/bulk_label_modifier.py "folder/path" "Label Name" "Field Name" "Value Name"`
+
+#### file_downloader.py
+- **Purpose**: Download a specific file by ID
+- **Features**: Auto-exports Google Docs/Sheets to PDF, handles Shared Drives
+- **Usage**: `python automations/file_downloader.py <FILE_ID> [--dest /path/to/save]`
 
 ### Utilities (utilities.py)
 - `authenticate(scopes)` - Shared OAuth2 authentication logic
