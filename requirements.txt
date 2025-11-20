@@ -1,0 +1,9 @@
+# Python 3.11+ required (tested with Python 3.12.8)
+# Run ./setup.sh to create venv with correct Python version
+
+google-api-python-client==2.182.0
+google-auth==2.40.3
+google-auth-oauthlib==1.2.1
+google-auth-httplib2==0.2.0
+pikepdf==9.11.0
+pygments==2.18.0
