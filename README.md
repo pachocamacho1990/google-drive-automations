@@ -101,6 +101,16 @@ Run `./setup.sh` to create isolated virtual environment with dependencies
 - `token.json` generated automatically (contains access + refresh tokens)
 - Subsequent runs use `token.json` (no browser required)
 
+#### Understanding token.json
+The `token.json` file contains your **Access Token** (short-lived) and **Refresh Token** (long-lived).
+-   **Automatic Refresh**: The scripts automatically use the Refresh Token to get a new Access Token when it expires. You do **not** need to re-authenticate manually.
+-   **When to re-authenticate**: You only need to delete `token.json` and run the script again if:
+    1.  You change the `SCOPES` in the code.
+    2.  The Refresh Token expires (e.g., after 6 months of inactivity).
+    3.  You revoke the app's access in your Google Account settings.
+
+**Note**: Whenever `token.json` is missing or deleted, running any script will trigger the **Google User Auth flow**. You must complete the browser login process to generate a new `token.json`.
+
 ## Security
 
 **⚠️ Important: Never commit these files to git:**
