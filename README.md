@@ -2,6 +2,15 @@
 
 Automate Google Drive operations with Python using OAuth2 authentication and Drive Labels API.
 
+A lightweight, framework-free Python toolkit for automating Google Drive operations.
+
+## What are Drive Labels?
+**Drive Labels** are metadata tags that you can attach to your Google Drive files to organize and classify them beyond simple folders. Think of them as "sticky notes" with structured data.
+
+-   **Examples**: "Confidentiality" (Public/Internal/Restricted), "Status" (Draft/Final), "Department" (HR/Engineering).
+-   **Why use them?**: They allow you to search, filter, and apply policies to files regardless of where they live in your folder structure.
+-   **How this tool helps**: This toolkit lets you programmatically **list**, **read**, and **modify** these labels, enabling powerful automation workflows.
+
 ## Quick Start
 
 ```bash
