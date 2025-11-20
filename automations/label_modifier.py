@@ -7,7 +7,7 @@ import json
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from googleapiclient.discovery import build
-from utilities import authenticate, get_labels_catalog
+from utilities import authenticate, get_labels_catalog, resolve_name_to_id
 
 SCOPES = ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.labels"]
 
@@ -47,37 +47,6 @@ def modify_label(file_id, label_id, field_id, choice_id):
         print(f"Error modifying label: {e}")
         return None
 
-def resolve_name_to_id(catalog, name, type_desc, context_dict=None):
-    """
-    Resolve a name to an ID using the catalog.
-    If name matches an ID directly, return it.
-    Otherwise, search for a matching displayName (case-insensitive).
-    """
-    # 1. Check if it's already an ID (simple heuristic: usually long strings)
-    # But we also check if it exists as a key in the context
-    search_dict = context_dict if context_dict else catalog
-    
-    if name in search_dict:
-        return name
-
-    # 2. Search by display name
-    matches = []
-    for id_val, data in search_dict.items():
-        if data.get('displayName', '').lower() == name.lower():
-            matches.append(id_val)
-    
-    if len(matches) == 1:
-        return matches[0]
-    elif len(matches) > 1:
-        print(f"❌ Ambiguous {type_desc} name: '{name}'. Matches: {matches}")
-        sys.exit(1)
-    
-    # 3. If no match found, maybe it's an ID that wasn't in the top-level keys 
-    # (though for catalog/fields/choices it should be).
-    # We'll assume if it looks like an ID, it might be one we missed or raw input.
-    # But for safety, if we can't find it by name and it's not a key, we warn.
-    print(f"❌ Could not find {type_desc} with name or ID: '{name}'")
-    sys.exit(1)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Modify a label on a Google Drive file.')

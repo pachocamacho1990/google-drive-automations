@@ -27,7 +27,8 @@ drive-automation-actions/
 ├── automations/
 │   ├── labels_lister.py   # Standalone script: lists labels
 │   ├── folder_lister.py   # Standalone script: lists files with labels
-│   └── label_modifier.py  # Standalone script: modifies labels (names or IDs)
+│   ├── label_modifier.py  # Standalone script: modifies labels (names or IDs)
+│   └── bulk_label_modifier.py # Standalone script: bulk modifies labels in folder
 ├── utilities.py           # Shared auth & helper functions
 ├── credentials.json       # OAuth2 client configuration (from Google Cloud Console)
 ├── token.json            # OAuth2 tokens (auto-generated on first run)
@@ -60,6 +61,11 @@ Each automation is a **standalone script** that does one thing well.
 - **Features**: Supports human-readable names for labels, fields, and values (auto-resolves to IDs)
 - **Usage**: `python automations/label_modifier.py <file_id> "Label Name" "Field Name" "Value Name"`
 - **Example**: `python3.12 automations/label_modifier.py "1zOU5JWp_1lkB93IfDN9c5X95-tcDBxlG" "Clasificación de información/datos" "Categoria" "Información Interna"`
+
+#### bulk_label_modifier.py
+- **Purpose**: Apply a label to **all files** in a specific folder
+- **Features**: Bulk processing, progress tracking, name resolution
+- **Usage**: `python automations/bulk_label_modifier.py "folder/path" "Label Name" "Field Name" "Value Name"`
 
 ### Utilities (utilities.py)
 - `authenticate(scopes)` - Shared OAuth2 authentication logic
