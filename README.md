@@ -94,7 +94,7 @@ files = list_files_in_folder(service, drive_id, folder_id)
 ## Setup Requirements
 
 ### 1. Google Cloud Project
-- **Any GCP Project**: You can use any Google Cloud Project (the example `atomic-elixir-377814` is just for reference)
+- **Any GCP Project**: You can use any Google Cloud Project (e.g., `my-drive-automation-project`)
 - **Authentication Method**: OAuth2 User Authentication (not service account)
 
 ### 2. OAuth2 Credentials Setup
